@@ -27,6 +27,7 @@ python rag/eval_rag.py \
 --index_name dialdoc \
 --index_path $KB_FOLDER/my_knowledge_dataset_index.faiss \
 --n_docs 10 \
+--eval_batch_size 1 \
 --model_name_or_path  $MODEL_PATH \
 --eval_mode retrieval \
 --evaluation_set $DATA_DIR/$split.source \
@@ -34,4 +35,4 @@ python rag/eval_rag.py \
 --gold_data_mode ans \
 --recalculate \
 --eval_all_checkpoints \
---predictions_path results.txt
+--predictions_path $MODEL_PATH/results.txt
