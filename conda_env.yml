@@ -9,10 +9,12 @@ dependencies:
   - pytorch=1.9.1
   - cudatoolkit=11.1
   - pip:
-    - tensorboard==2.5.0
+    - tensorboard==2.4.1
     - tensorboardX==2.1
     - transformers==4.12.1
+    - tokenizers==0.10.3
     - pytorch_lightning==1.1.8
+    - torchmetrics==0.6.0
     - datasets==1.16.1
     - GitPython
     - psutil
@@ -21,3 +23,5 @@ dependencies:
     - sacrebleu
     - rank-bm25
     - faiss-cpu
+    - h5py
+    - wrapt
