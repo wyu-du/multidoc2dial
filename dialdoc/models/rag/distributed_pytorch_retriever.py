@@ -155,7 +155,7 @@ class RagPyTorchDistributedRetriever(DialDocRagRetriever):
             scatter_scores = self._chunk_tensor(scores, n_queries)
 
         doc_ids = self._scattered(scatter_ids, [n_queries, n_docs], target_type=torch.int64)
-        retrieved_doc_embeds = self._scattered(scatter_vectors, [n_queries, n_docs, combined_hidden_states.shape[1]])
-        doc_scores = self._scattered(scatter_scores, [n_queries, n_docs], torch.float64)
+        retrieved_doc_embeds = self._scattered(scatter_vectors, [n_queries, n_docs, combined_hidden_states.shape[1]], torch.float32)
+        doc_scores = self._scattered(scatter_scores, [n_queries, n_docs], torch.float32)
 
         return retrieved_doc_embeds.numpy(), doc_ids.numpy(), doc_scores.numpy(), self.index.get_doc_dicts(doc_ids)
